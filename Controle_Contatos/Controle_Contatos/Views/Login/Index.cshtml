@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "_LayoutOff";
+}
+@model LoginModel
+<h1>Pagina de login</h1>
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">x</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<form asp-controller="Login" asp-action="Logar" method="post">
+    <div class="form-group">
+        <label for="login">Login</label>
+        <input type="text" class="form-control" asp-for="Login" placeholder="Login" id="login">
+        
+    </div>
+
+    <div class="form-group">
+        <label for="senha">Senha</label>
+        <input type="password" class="form-control" asp-for="Senha" placeholder="Senha" id="senha">
+        
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-primary w-100">Entrar</button>
+    <a role="button" class="btn btn-secondary d-block" asp-controller="Usuario" asp-action="CadastroUsuario">Cadastrar</a>
+</form>
